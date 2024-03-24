@@ -16,4 +16,8 @@ while (not people.isdigit()):
   people = input("\033[0;37mHow many people to split the bill?\n\033[0m")
 people = int(people)
 
-print(f"Each person should pay: ${round(bill * percentage * people)}")
+bill_per_person = round((bill + bill * percentage) / people, 2)
+# 조건부 표현식 
+bill_per_person = "{:.2f}".format(bill_per_person)
+
+print(f"Each person should pay: ${bill_per_person}")

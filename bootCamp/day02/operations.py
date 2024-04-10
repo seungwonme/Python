@@ -8,16 +8,16 @@ print(2 - 3)
 print(2 * 3)
 
 # Divide
-print(2 / 3) # Warning: This will return a float
+print(2 / 3)  # Warning: This will return a float
 
 # Modulus
 print(2 % 3)
 
 # Exponent
-print(2 ** 3)
+print(2**3)
 
 # Floor Division
-print(2 // 3) # Warning: This will return an integer
+print(2 // 3)  # Warning: This will return an integer
 
 # PEMDASLR
 

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Macro</title>
+</head>
+<body>
+  {% macro render_macro(comment) %}
+      <li>{{ comment }}</li>
+  {% endmacro %}
+  <ul>
+      {% for comment in comments %}
+          {{ render_macro(comment) }}
+      {% endfor %}
+  </ul>
+</body>
+</html>

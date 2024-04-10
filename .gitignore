@@ -1,7 +1,12 @@
-.venv/
-.vscode/
+# OS
 .DS_Store
-.env
-.ipynb_checkpoints/
-.idea/
+
+# vscode
+.vscode/
+
+# Python
 __pycache__/
+.venv/
+
+# code runner
+tempCodeRunnerFile.*

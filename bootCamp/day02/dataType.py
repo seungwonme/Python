@@ -4,6 +4,13 @@
 string = "Hello"
 print(str(type(string)) + " " + string[0])  # H
 
+## f-string
+name = "John"
+age = 20
+print(f"Hello, my name is {name} and I am {age} years old.")  # Hello, my name is John and I am 20 years old.
+
+
+
 ## Integer
 integer = 123_456_789
 print(str(type(integer)) + " " + str(integer))  # 123,456,789

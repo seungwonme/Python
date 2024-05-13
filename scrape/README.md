@@ -1,5 +1,7 @@
 # Web Scraping with ScrapeGraphAI
 
+[Scrapegraph-ai: Python scraper based on AI - Github](https://github.com/VinciGit00/Scrapegraph-ai?tab=readme-ov-file)
+
 ## Install
 
 ```bash

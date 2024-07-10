@@ -1,57 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% for i in mock_data %}
-    <section>
-        <h2>{{i.name}}</h2>
-        <p>{{i.email}}</p>
-        <!-- 개행이 안되어 있는 것을 확인! -->
-        <p>{{ i.contents }}</p>
-        
-        <!-- 개행이 된 것을 확인! -->
-        <p>{{ i.contents |linebreaks }}</p> 
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Index</title>
+        <style>
+            body {
+                color: #666;
+                font: 14px/24px "Open Sans", "HelveticaNeue-Light",
+                    "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,
+                    "Lucida Grande", Sans-Serif;
+            }
+            table {
+                border-collapse: separate;
+                border-spacing: 0;
+                width: 100%;
+            }
+            th,
+            td {
+                padding: 6px 15px;
+                width: calc(100% / 7);
+            }
+            th {
+                background: #42444e;
+                color: #fff;
+                text-align: left;
+            }
+            tr:first-child th:first-child {
+                border-top-left-radius: 6px;
+            }
+            tr:first-child th:last-child {
+                border-top-right-radius: 6px;
+            }
+            td {
+                border-right: 1px solid #c6c9cc;
+                border-bottom: 1px solid #c6c9cc;
+            }
+            td:first-child {
+                border-left: 1px solid #c6c9cc;
+            }
+            tr:nth-child(even) td {
+                background: #eaeaed;
+            }
+            tr:last-child td:first-child {
+                border-bottom-left-radius: 6px;
+            }
+            tr:last-child td:last-child {
+                border-bottom-right-radius: 6px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Index Page</h1>
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>Name</th>
+                        <th>Email Length</th>
+                        <th>Phone</th>
+                        <th>Country</th>
+                        <th>Job</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in mock_data %}
+                    <tr>
+                        {# filter #}
+                        {# length: 문자열의 길이를 반환 #}
+                        {# linebreaks: 줄바꿈을 <br>로 변환 #}
+                        {# lower: 소문자로 변환 #}
+                        {# upper: 대문자로 변환 #}
+                        {# https://docs.djangoproject.com/en/5.0/ref/templates/language/ #}
+                        <td>{{ forloop.counter }} {{ forloop.revcounter }} {{ forloop.counter0 }}</td>
+                        <td>{{ data.name | linebreaks }}</td> 
+                        <td>{{ data.email | length }}</td>
+                        <td>{{ data.phone }}</td>
+                        <td>{{ data.country }}</td>
+                        <td>{{ data.job }}</td>
+                        <td>
+                            {# with을 사용하여 변수를 선언하고 사용할 수 있다. #}
+                            {# 자료형이 문자열일 때 |add:'0'을 해주면 숫자 자료형이 된다. #}
+                            {% with age=data.age|add:'0' %}
+                            {% if age >= 20 and age <= 35 %}
+                            청년입니다.
+                            {% elif age > 35 and age <= 50 %}
+                            중년입니다.
+                            {% else %}
+                            노인입니다.
+                            {% endif %}
+                            {% endwith %}
+                        </td>
+                    </tr>
 
-        <hr>
-
-        <p>{{ i.contents|truncatewords:5 }}</p>
-        <p>{{ i.contents|length }}
-        <p>{{ i.contents|slice:":10" }}
-
-        <hr>
-
-        <p>{{ forloop.counter }}번째 반복문</p>
-        <p>{{ forloop.counter0 }}</p>
-        <p>{{ forloop.revcounter }}</p>
-
-    </section>
-    {% endfor %}
-
-    {% for i in mock_data %}
-        <h2>{{i.name}}</h2>
-        <p>{{ forloop.counter }}</p>
-        <p>{{ i.age }}</p>
-        {% if i.age|add:"0" >= 20 and i.age|add:"0" <= 35 %}
-            <p>청년입니다.</p>
-        {% elif i.age|add:"0" >= 35 and i.age|add:"0" <= 60 %}
-            <p>중년입니다.</p>
-        {% else %}
-            <p>장년입니다.</p>
-        {% endif %}
-    {% endfor %}
-
-    {% with value='hello world' %}
-        <p>{{value}}</p>
-        <p>이 안에서 for나 if를 사용할 수 있습니다.</p>
-    {% endwith %}
-
-    {% lorem 3 p %}
-
-    <p>It is {% now "jS F Y H:i" %}</p>
-    <p>It is {% now "Y/M/D" %}</p>
-</body>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <p>It is {% now "Y-m-d H:i:s" %} now.</p>
+            {# lorem: 더미 텍스트를 생성한다. #}
+            {# {% lorem [count] [method] [random] %} #}
+            {% lorem 3 p %}
+        </section>
+    </body>
 </html>

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>userinfo</title>
-</head>
-<body>
-    <h1>userinfo 페이지</h1>
-    <p>{{user.username}}</p>
-    <p>{{user.email}}</p>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ user.username }}'s account</title>
+    </head>
+    <body>
+        <h1>{{ user.username }}'s account</h1>
+        <p>email: {{ user.email }}</p>
+        <p>password: {{ user.password }}</p>
+    </body>
 </html>

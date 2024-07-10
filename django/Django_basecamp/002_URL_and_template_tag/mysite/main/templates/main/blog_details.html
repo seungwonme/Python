@@ -2,14 +2,18 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>blog_details</title>
+    <title>Blog Detail</title>
 </head>
 <body>
-    <h1>blog_details</h1>
-    <h2>{{ blog.title }}</h2>
-    <p>{{ blog.author }}</p>
+    <h1>{{ blog.id }}: {{ blog.title }}</h1>
     <p>{{ blog.content }}</p>
+    <p>{{ blog.author }}</p>
+    <a href="/blog/">Back to Blog List</a>
+    <ul>
+        {% for language in languages %}
+        <li>{{ language }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

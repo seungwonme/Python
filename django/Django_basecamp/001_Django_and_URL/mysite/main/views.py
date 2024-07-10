@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 def index(request):
@@ -12,3 +11,15 @@ def a(request):
 
 def b(request):
     return render(request, "main/b.html")
+
+
+def c(request):
+    return render(request, "main/c.html")
+
+
+def seunan(request):
+    return render(request, "main/seunan.html")
+
+
+def orm(request):
+    return render(request, "main/orm.html")

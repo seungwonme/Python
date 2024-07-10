@@ -25,8 +25,8 @@ blog_list_db = [
 user_list_db = [
     {
         "id": 1,
-        "username": "hojun",
-        "email": "hojun@gmail.com",
+        "username": "seunan",
+        "email": "seunan@gmail.com",
         "password": "1234",
     },
     {
@@ -43,104 +43,106 @@ user_list_db = [
     },
 ]
 
+mock_data = [
+    {
+        "_id": "e57a00c9-87b0-4f17-C781-340a17eaebd2",
+        "index": "1",
+        "name": "엄태규",
+        "email": "user-44yf3kg@blandit.net",
+        "phone": "010-6668-3556",
+        "country": "바베이도스",
+        "address": "여의대방로 87-4",
+        "job": "기계공학 기술자ㆍ연구원",
+        "age": "40"
+    },
+    {
+        "_id": "5b95d56f-3d33-43b9-B3bb-391f4b08875a",
+        "index": "2",
+        "name": "라재윤",
+        "email": "user-yz9qcic@Molestie.co.kr",
+        "phone": "010-8447-0746",
+        "country": "지브롤터",
+        "address": "노량진로 53-1",
+        "job": "프로게이머",
+        "age": "25"
+    },
+    {
+        "_id": "51858a30-b8ff-433e-C61f-903aac588993",
+        "index": "3",
+        "name": "명태우",
+        "email": "user-0nd4d80@cursus.io",
+        "phone": "010-3961-7120",
+        "country": "콜롬비아",
+        "address": "잠실로 38-5",
+        "job": "판사",
+        "age": "60"
+    },
+    {
+        "_id": "e7a7e0b1-cb0c-4e89-A15c-2d8c1a8e3db1",
+        "index": "4",
+        "name": "가원준",
+        "email": "user-72pdi31@quia.org",
+        "phone": "010-9592-8486",
+        "country": "폴란드",
+        "address": "홍익로 44-1",
+        "job": "신약개발연구원",
+        "age": "36"
+    },
+    {
+        "_id": "c876871d-d2eb-4dbd-Ab35-ab055b944cb4",
+        "index": "5",
+        "name": "피\n종\n혁\n",
+        "email": "user-5nels27@at.net",
+        "phone": "010-9930-8128",
+        "country": "바하마",
+        "address": "공덕로 85-7",
+        "job": "물리학연구원",
+        "age": "30"
+    },
+    {
+        "_id": "a65ca03c-c79d-4968-C69a-ba39d317973b",
+        "index": "6",
+        "name": "국채윤",
+        "email": "user-pktjqt6@leo.co.kr",
+        "phone": "010-9067-8857",
+        "country": "칠레",
+        "address": "여의대방로 16-2",
+        "job": "자연계중등학교교사",
+        "age": "34"
+    },
+]
+
 
 def index(request):
-    mock_data = [
-        {
-            "_id": "40ed5f5d-1479-4cff-A8db-50cd925358d1",
-            "index": "1",
-            "name": "탁민재",
-            "email": "user-okckofi@molestie.net",
-            "phone": "010-3275-8617",
-            "country": "감비아",
-            "address": "용두동 86-3",
-            "job": "메이크업아티스트",
-            "age": "29",
-        },
-        {
-            "_id": "c802171f-5661-43d8-C146-29d60cb097ab",
-            "index": "2",
-            "name": "류정민",
-            "email": "user-98i0esc@Ornare.com",
-            "phone": "010-7740-8505",
-            "country": "칠레",
-            "address": "성동로 89-4",
-            "job": "메이크업아티스트",
-            "age": "61",
-        },
-        {
-            "_id": "8f605ef8-98fe-43ab-A234-e7882745254e",
-            "index": "3",
-            "name": "대재은",
-            "email": "user-rj5sqf1@finibus.com",
-            "phone": "010-2930-6436",
-            "country": "가나",
-            "address": "공덕로 9-3",
-            "job": "은행출납사무원",
-            "age": "30",
-        },
-        {
-            "_id": "63d288ca-81ee-4689-Af9d-e3d20e8a8b2e",
-            "index": "4",
-            "name": "등예건",
-            "email": "user-0crjbbk@montes.io",
-            "phone": "010-6523-7033",
-            "country": "세인트루시아",
-            "address": "행운동 87-5",
-            "job": "국제회의전문가",
-            "age": "57",
-        },
-        {
-            "_id": "acb7bc4b-b99e-4cff-Cd1f-ce14b4572773",
-            "index": "5",
-            "name": "담누리",
-            "email": "user-ay8ycrv@Nam.co.kr",
-            "phone": "010-6276-4787",
-            "country": "수리남",
-            "address": "잠원로 25-9",
-            "job": "영화감독",
-            "age": "47",
-        },
-        {
-            "_id": "488f4267-3f06-432f-B3bd-7f9f5f793a5e",
-            "index": "6",
-            "name": "동진성",
-            "email": "user-k285yz7@sagittis.biz",
-            "phone": "010-4826-4141",
-            "country": "그레나다",
-            "address": "서소문로 76-7",
-            "job": "심리학연구원",
-            "age": "53",
-        },
-        {
-            "_id": "ba473db8-1d12-4241-Ce5c-66348452eec9",
-            "index": "7",
-            "name": "근승리",
-            "email": "user-a1txn3z@tempus.io",
-            "phone": "010-2148-4195",
-            "country": "앤티가 바부다",
-            "address": "대림로 35-6",
-            "job": "로봇연구원",
-            "age": "20",
-            "contents": "각급 선거관리위원회의 조직·직무범위 기타 필요한 사항은 법률로 정한다. 국가는 법률이 정하는 바에 의하여 재외국민을 보호할 의무를 진다. 국회의원의 수는 법률로 정하되, 200인 이상으로 한다.\n\n\n대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다. 이 헌법공포 당시의 국회의원의 임기는 제1항에 의한 국회의 최초의 집회일 전일까지로 한다.",
-        },
-    ]
-    context = {"mock_data": mock_data}
+    context = {
+        "mock_data": mock_data,
+    }
     return render(request, "main/index.html", context)
 
 
 def blog_list(request):
-    context = {"blog_list": blog_list_db, "hello": [10, 20, 30]}
+    context = {
+        "blog_list": blog_list_db,
+    }
     return render(request, "main/blog_list.html", context)
+
+
+# s = f'hello world' # 개행이 안되고
+# ss = f'''hello world''' #개행이 됩니다.
 
 
 def blog_details(request, pk):
     blog = blog_list_db[pk - 1]
-    context = {"blog": blog}
+    languages = ["python", "java", "javascript"]
+    context = {
+        "blog": blog,
+        "languages": languages,
+    }
     return render(request, "main/blog_details.html", context)
 
 
 def accounts_details(request, username):
+    # all(filter(user_list_db, lambda x: x['username'] == user))
     finduser = None
     for user in user_list_db:
         if user["username"] == username:
@@ -148,5 +150,7 @@ def accounts_details(request, username):
             break
     if finduser is None:
         return HttpResponse("User not found")
-    context = {"user": finduser}
+    context = {
+        "user": finduser,
+    }
     return render(request, "main/accounts_details.html", context)

@@ -1,0 +1,70 @@
+{% extends 'base.html' %} {% block content %}
+<h1>{{ chat_room.name }}</h1>
+<a href="{% url 'chat_room_list' %}">채팅방 목록으로 돌아가기</a>
+
+<div id="chat-history"></div>
+
+<form id="chat-form">
+    {% csrf_token %}
+    <input
+        type="text"
+        id="user-input"
+        placeholder="메시지를 입력하세요"
+        required
+    />
+    <button type="submit">전송</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function loadChatHistory() {
+        $.get("{% url 'get_chat_history' chat_room.id %}", function (data) {
+            let chatHistory = $("#chat-history");
+            chatHistory.empty();
+            data.history.forEach(function (item) {
+                chatHistory.append(
+                    "<p><strong>Human:</strong> " + item.question + "</p>"
+                );
+                chatHistory.append(
+                    "<p><strong>AI:</strong> " + item.answer + "</p>"
+                );
+            });
+        });
+    }
+
+    $(document).ready(function () {
+        loadChatHistory();
+
+        $("#chat-form").submit(function (e) {
+            e.preventDefault();
+            let userInput = $("#user-input").val();
+            $("#user-input").val("");
+            $("#chat-history").append(
+                "<p><strong>Human:</strong> " + userInput + "</p>"
+            );
+
+            $.ajax({
+                url: "{% url 'chat' chat_room.id %}",
+                type: "POST",
+                data: {
+                    question: userInput,
+                    csrfmiddlewaretoken: $(
+                        "input[name=csrfmiddlewaretoken]"
+                    ).val(),
+                },
+                xhrFields: {
+                    onprogress: function (e) {
+                        let response = e.currentTarget.response;
+                        $("#chat-history").append(
+                            "<p><strong>AI:</strong> " + response + "</p>"
+                        );
+                    },
+                },
+                success: function (data) {
+                    loadChatHistory();
+                },
+            });
+        });
+    });
+</script>
+{% endblock %}

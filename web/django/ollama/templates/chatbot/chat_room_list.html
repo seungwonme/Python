@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>채팅방 목록</h1>
+<form method="post" action="{% url 'create_chat_room' %}">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="채팅방 이름" required>
+    <button type="submit">새 채팅방 생성</button>
+</form>
+<ul>
+    {% for room in chat_rooms %}
+    <li>
+        <a href="{% url 'chat' room.id %}">{{ room.name }}</a>
+        <form method="post" action="{% url 'delete_chat_room' room.id %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" onclick="return confirm('정말로 삭제하시겠습니까?')">삭제</button>
+        </form>
+    </li>
+    {% empty %}
+    <li>채팅방이 없습니다. 새로운 채팅방을 생성해주세요.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

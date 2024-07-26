@@ -28,3 +28,7 @@ STRIKE_THROUGH = '\033[9m'
 RESET = '\033[0m'
 # ~ANSI escape codes
 
+# __name__, __main__
+if __name__ == "__main__":
+    print(FG_WHITE + 'It is a aec module.' + RESET)
+print("__name__ is " + __name__)

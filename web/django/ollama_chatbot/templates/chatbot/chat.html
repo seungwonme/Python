@@ -1,0 +1,12 @@
+<h2>주제: {{ chat_room.description }}</h2>
+<a href="/">목록으로</a>
+{% if conversations %}
+    <ul>
+    {% for conversation in conversations %}
+        <li class="question">User: {{ conversation.question }}</li>
+        <li class="answer">Ai: {{ conversation.answer }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>대화가 없습니다.</p>
+{% endif %}

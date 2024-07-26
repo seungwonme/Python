@@ -13,3 +13,7 @@ venv/
 
 # code runner
 tempCodeRunnerFile.*
+
+# DB
+*.sqlite3
+*.db

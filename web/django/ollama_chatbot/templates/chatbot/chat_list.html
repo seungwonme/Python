@@ -1,0 +1,9 @@
+{% if chat_list %}
+    <ul>
+    {% for chat in chat_list %}
+        <li><a href="chat/{{chat.id}}">{{ chat.description }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>질문이 없습니다.</p>
+{% endif %}
